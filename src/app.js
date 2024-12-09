@@ -6,9 +6,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Route configuration
+//Route configuration
 // Ex.
-// app.use('/api', require('./routes/api'));
+app.use('/api', require('./routes/api'));
 
 // 404 handler
 app.use((req, res, next) => {
