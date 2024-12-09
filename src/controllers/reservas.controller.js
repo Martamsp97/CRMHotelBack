@@ -9,6 +9,21 @@ const getReservas = async (req, res, next) => {
     }
 }
 
+const getReservaById = async (req, res, next) => {
+    const { reservaId } = req.params
+    try {
+        const reserva = await Reserva.findByPk(reservaId)
+        if (!reserva) {
+            return res.status(404).json({ message: 'La reserva no existe' })
+        }
+        res.json(reserva)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
 module.exports = {
-    getReservas
+    getReservas,
+    getReservaById
 }
