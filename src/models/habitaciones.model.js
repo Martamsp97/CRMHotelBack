@@ -1,73 +1,52 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('sequelize');
 
-const Usuario = sequelize.define('usuarios', {
+const Habitacion = sequelize.define('habitaciones', {
     id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
+    },
+    piso: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
+    puerta: {
+        type: DataTypes.INTEGER,
         unique: true,
-        type: DataTypes.INTEGER
-
-    },
-    nombre: {
-        type: DataTypes.STRING(45),
         allowNull: true
     },
-    apellidos: {
-        type: DataTypes.STRING(45),
-        allowNull: true
+    mascotas: {
+        type: DataTypes.TINYINT,
+        allowNull: false
     },
-    fecha_nacimiento: {
-        type: DataTypes.DATEONLY,
-        allowNull: true
-    },
-    dni: {
-        type: DataTypes.STRING(9),
-        allownull: false,
-        unique: true
-    },
-    email: {
+    num_camas: {
         type: DataTypes.STRING(45),
         allownull: false,
-        unique: true
     },
-    password: {
+    categoria: {
         type: DataTypes.STRING(45),
+        allownull: false,
+    },
+    precio: {
+        type: DataTypes.STRING(45),
+        allownull: false,
+    },
+    tamanho: {
+        type: DataTypes.STRING(45),
+        allownull: true,
+    },
+    ubicacion: {
+        type: DataTypes.ENUM('ext', 'int'),
         allownull: false
     },
-    rol: {
-        type: DataTypes.STRING(45),
-        allownull: false
-    },
-    sexo: {
-        type: DataTypes.ENUM('MASC', 'FEM'),
-        allownull: true
-    },
-    telefono: {
-        type: DataTypes.INTEGER,
-        allownull: false
-    },
-    pais: {
-        type: DataTypes.STRING(45),
-        allownull: false
-    },
-    direccion: {
-        type: DataTypes.STRING(45),
-        allownull: true
-    },
-    ciudad: {
-        type: DataTypes.STRING(45),
-        allownull: false
-    },
-    cod_postal: {
-        type: DataTypes.INTEGER,
+    cocina: {
+        type: DataTypes.TINYINT,
         allownull: false
     }
-
-
 }, {
-    sequelize, tableName: 'usuarios', timestamps: false
+    sequelize, tableName: 'habitaciones', timestamps: false
 });
 
-module.exports = Usuario;
+module.exports = Habitaciones;
