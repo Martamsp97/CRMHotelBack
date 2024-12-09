@@ -60,6 +60,10 @@ const Reserva = sequelize.define('Reserva', {
     metodo_pago: {
         allowNull: false,
         type: DataTypes.STRING(45)
+    },
+    estado: {
+        allowNull: false,
+        type: DataTypes.STRING(45)
     }
 }
     , {

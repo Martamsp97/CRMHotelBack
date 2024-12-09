@@ -22,8 +22,31 @@ const getReservaById = async (req, res, next) => {
     }
 }
 
+const updateReserva = async (req, res, next) => {
+    const { reservaId } = req.params
+    try {
+        const reserva = await Reserva.findByPk(reservaId)
+        reserva.update(req.body)
+        res.json(reserva)
+    } catch (error) {
+        next(error)
+    }
+}
+
+const createReserva = async (req, res, next) => {
+    try {
+        const reserva = await Reserva.create(req.body)
+        res.json(reserva)
+    } catch (error) {
+        next(error)
+    }
+}
+
 
 module.exports = {
     getReservas,
-    getReservaById
+    getReservaById,
+    updateReserva,
+    createReserva,
+
 }
