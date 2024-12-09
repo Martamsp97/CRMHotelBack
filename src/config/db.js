@@ -1,9 +1,9 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require('sequelize')
 
 //Leer fichero .env
-require('dotenv').config()
+require('dotenv').config();
 
-//Conexión con la BD
+//Conexion con la BD
 const sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -13,20 +13,25 @@ const sequelize = new Sequelize(
         port: process.env.DB_PORT,
         dialect: 'mysql',
         logging: false
-
     }
 );
 
-//Prueba de conexión 
+//Prueba de conexion
+
+
 (async () => {
     try {
-        await sequelize.authenticate()
-        console.log('Conexión a la BD establecida')
+
+        await sequelize.authenticate();
+        console.log('Conexion a la bd establecida');
+
     } catch (error) {
-        console.log(error)
-        console.log('Error de conexión a la BD')
+
+        console.log('Error en la conexion a la BD');
     }
-})()
+
+
+})();
 
 
 module.exports = sequelize
