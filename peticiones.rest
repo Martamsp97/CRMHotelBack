@@ -38,5 +38,30 @@ Content-Type: application/json
 {
     "fecha_entrada": "2024-12-11",
     "aparcamiento": "false",
-    "precio": "1600"
+    "precio": "1600"}
+###
+POST {{host}}/usuarios/registro
+Content-Type: application/json
+
+{
+    "nombre":"Antonio",
+    "apellidos":"Gómez",
+    "dni":"98657654D",
+    "email":"toño@gmail.com",
+    "password":"12345",
+    "rol":"cliente",
+    "telefono":789876543,
+    "ciudad":"Madrid",
+    "pais":"España",
+    "cod_postal":28003
+
+}
+
+###
+POST {{host}}/usuarios/login
+Content-Type: application/json
+
+{
+    "email":"toño@gmail.com",
+    "password":"12345"
 }
