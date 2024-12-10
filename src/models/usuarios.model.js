@@ -34,7 +34,7 @@ const Usuario = sequelize.define('Usuario', {
         unique: true
     },
     password: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.STRING(200),
         allownull: false
     },
     rol: {
