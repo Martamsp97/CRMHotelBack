@@ -2,13 +2,10 @@ const { getReservas, getReservaById, createReserva, updateReserva, filterByClien
 
 const router = require('express').Router();
 
-<<<<<<< HEAD
 router.get('/', getReservas)
 router.get('/:reservaId', getReservaById)
 router.post('/', createReserva)
 router.put('/:reservaId', updateReserva)
 
 
-=======
->>>>>>> feature-controlleruser
 module.exports = router
