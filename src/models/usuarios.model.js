@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+const { DataTypes } = require('sequelize')
+=======
 const { DataTypes } = require('sequelize');
-const sequelize = require('sequelize');
+>>>>>>> feature-controlleruser
+const sequelize = require('../config/db')
 
-const Usuario = sequelize.define('usuarios', {
+
+const Usuario = sequelize.define('Usuario', {
     id: {
         primaryKey: true,
         autoIncrement: true,
@@ -33,7 +38,7 @@ const Usuario = sequelize.define('usuarios', {
         unique: true
     },
     password: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.STRING(200),
         allownull: false
     },
     rol: {
@@ -70,4 +75,4 @@ const Usuario = sequelize.define('usuarios', {
     sequelize, tableName: 'usuarios', timestamps: false
 });
 
-module.exports = Usuario;
+module.exports = Usuario

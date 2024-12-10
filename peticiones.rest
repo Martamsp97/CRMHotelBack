@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @host = http://localhost:3000
 @apiHabitaciones = {{host}}/api/habitaciones
 
@@ -44,3 +45,72 @@ Content-Type: application/json
 ###
 DELETE {{apiHabitaciones}}/3
 
+=======
+@host = http://localhost:3000/api
+
+GET {{host}}/reservas
+
+###
+
+GET {{host}}/reservas/1
+
+
+###
+
+POST {{host}}/reservas
+Content-Type: application/json
+
+{
+    "fecha_entrada": "2024-12-12",
+    "fecha_salida": "2024-12-16",
+    "puntuacion":"4" ,
+    "num_personas": "2",
+    "regimen": "Pensión Completa",
+    "tipo_cancelacion": "Sin Cancelación",
+    "aparcamiento": "true" ,
+    "desayuno":"true" ,
+    "spa": "true",
+    "gimnasio":"true" ,
+    "piscina": "true",
+    "precio": "1400",
+    "metodo_pago":"Tarjeta de crédito" ,
+    "estado": "Programada",
+    "usuarios_id": "1"
+}
+
+###
+
+PUT {{host}}/reservas/1
+Content-Type: application/json
+
+{
+    "fecha_entrada": "2024-12-11",
+    "aparcamiento": "false",
+    "precio": "1600"}
+###
+POST {{host}}/usuarios/registro
+Content-Type: application/json
+
+{
+    "nombre":"Antonio",
+    "apellidos":"Gómez",
+    "dni":"98657654D",
+    "email":"toño@gmail.com",
+    "password":"12345",
+    "rol":"cliente",
+    "telefono":789876543,
+    "ciudad":"Madrid",
+    "pais":"España",
+    "cod_postal":28003
+
+}
+
+###
+POST {{host}}/usuarios/login
+Content-Type: application/json
+
+{
+    "email":"toño@gmail.com",
+    "password":"12345"
+}
+>>>>>>> a1957c907d39840e6c1938c561d7ee26039c3b37
