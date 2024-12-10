@@ -34,6 +34,7 @@ const updateReserva = async (req, res, next) => {
 }
 
 const createReserva = async (req, res, next) => {
+    console.log(req.body)
     try {
         const reserva = await Reserva.create(req.body)
         res.json(reserva)
@@ -42,11 +43,19 @@ const createReserva = async (req, res, next) => {
     }
 }
 
+const filterByCliente = (req, res, next) => {
+    try {
+
+    } catch (error) {
+        next(error)
+    }
+}
 
 module.exports = {
     getReservas,
     getReservaById,
     updateReserva,
     createReserva,
+    filterByCliente
 
 }

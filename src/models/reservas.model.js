@@ -39,19 +39,19 @@ const Reserva = sequelize.define('Reserva', {
     },
     desayuno: {
         allowNull: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.BOOLEAN
     },
     spa: {
         allowNull: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.BOOLEAN
     },
     gimnasio: {
         allowNull: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.BOOLEAN
     },
     piscina: {
         allowNull: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.BOOLEAN
     },
     precio: {
         allowNull: false,
@@ -64,11 +64,16 @@ const Reserva = sequelize.define('Reserva', {
     estado: {
         allowNull: false,
         type: DataTypes.STRING(45)
+    },
+    usuarios_id: {
+        allowNull: false,
+        type: DataTypes.INTEGER
     }
 }
     , {
-        sequelize, tableName: 'citas', timestamps: false
+        sequelize, tableName: 'reservas', timestamps: false
     })
-Usuario.belongsTo(Usuario, { as: 'usuarios', foreignKey: 'usuarios_id' })
+
+Usuario.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuarios_id' })
 
 module.exports = Reserva

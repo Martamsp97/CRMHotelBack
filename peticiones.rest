@@ -1,0 +1,42 @@
+@host = http://localhost:3000/api
+
+GET {{host}}/reservas
+
+###
+
+GET {{host}}/reservas/1
+
+
+###
+
+POST {{host}}/reservas
+Content-Type: application/json
+
+{
+    "fecha_entrada": "2024-12-12",
+    "fecha_salida": "2024-12-16",
+    "puntuacion":"4" ,
+    "num_personas": "2",
+    "regimen": "Pensión Completa",
+    "tipo_cancelacion": "Sin Cancelación",
+    "aparcamiento": "true" ,
+    "desayuno":"true" ,
+    "spa": "true",
+    "gimnasio":"true" ,
+    "piscina": "true",
+    "precio": "1400",
+    "metodo_pago":"Tarjeta de crédito" ,
+    "estado": "Programada",
+    "usuarios_id": "1"
+}
+
+###
+
+PUT {{host}}/reservas/1
+Content-Type: application/json
+
+{
+    "fecha_entrada": "2024-12-11",
+    "aparcamiento": "false",
+    "precio": "1600"
+}
