@@ -1,7 +1,9 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('sequelize');
+const sequelize = require('../config/db');
 
-const Habitacion = sequelize.define('habitaciones', {
+const Habitacion = sequelize.define(
+    'habitaciones', 
+    {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -18,8 +20,8 @@ const Habitacion = sequelize.define('habitaciones', {
         allowNull: true
     },
     mascotas: {
-        type: DataTypes.TINYINT,
-        allowNull: false
+        type: DataTypes.INTEGER,
+        allowNull: true
     },
     num_camas: {
         type: DataTypes.STRING(45),
@@ -30,7 +32,7 @@ const Habitacion = sequelize.define('habitaciones', {
         allownull: false,
     },
     precio: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.INTEGER,
         allownull: false,
     },
     tamanho: {
@@ -38,7 +40,7 @@ const Habitacion = sequelize.define('habitaciones', {
         allownull: true,
     },
     ubicacion: {
-        type: DataTypes.ENUM('ext', 'int'),
+        type: DataTypes.STRING(45),
         allownull: false
     },
     cocina: {
@@ -49,4 +51,4 @@ const Habitacion = sequelize.define('habitaciones', {
     sequelize, tableName: 'habitaciones', timestamps: false
 });
 
-module.exports = Habitaciones;
+module.exports = Habitacion;
