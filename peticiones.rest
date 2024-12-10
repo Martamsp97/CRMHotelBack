@@ -1,0 +1,46 @@
+@host = http://localhost:3000
+@apiHabitaciones = {{host}}/api/habitaciones
+
+#######################
+#    HABITACIONES     #
+#######################
+GET {{apiHabitaciones}}
+
+###
+GET {{apiHabitaciones}}/1
+
+###
+POST {{apiHabitaciones}}
+Content-Type: application/json
+
+{
+"piso" : 3,
+"puerta" : 301,
+"mascotas":  2,
+"num_camas": "Doble",
+"categoria": "Premium",
+"precio": 470,
+"tamanho": "Mediana",
+"ubicacion": "Interior",
+"cocina" : 0
+}
+
+###
+PUT {{apiHabitaciones}}/2
+Content-Type: application/json
+
+{
+"piso" : 2,
+"puerta" : 204,
+"mascotas":  2,
+"num_camas": "Triple",
+"categoria": "Deluxe",
+"precio": 509,
+"tamanho": "Grande",
+"ubicacion": "Exterior",
+"cocina" : 1
+}
+
+###
+DELETE {{apiHabitaciones}}/3
+
