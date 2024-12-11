@@ -22,14 +22,10 @@
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "express": "^4.18.2",
-<<<<<<< HEAD
-    "mysql2": "^3.11.5",
-=======
     "i": "^0.3.7",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.5",
     "npm": "^10.9.2",
->>>>>>> feature-controlleruser
     "sequelize": "^6.37.5"
   },
   "devDependencies": {

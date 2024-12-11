@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const { DataTypes } = require('sequelize')
-=======
 const { DataTypes } = require('sequelize');
->>>>>>> feature-controlleruser
 const sequelize = require('../config/db')
 
 
@@ -66,7 +62,7 @@ const Usuario = sequelize.define('Usuario', {
         allownull: false
     },
     cod_postal: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(10),
         allownull: false
     }
 

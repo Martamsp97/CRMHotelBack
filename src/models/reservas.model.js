@@ -74,6 +74,6 @@ const Reserva = sequelize.define('Reserva', {
         sequelize, tableName: 'reservas', timestamps: false
     })
 
-Usuario.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuarios_id' })
+Reserva.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuarios_id' })
 
 module.exports = Reserva
