@@ -62,7 +62,7 @@ const Usuario = sequelize.define('Usuario', {
         allownull: false
     },
     cod_postal: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(10),
         allownull: false
     }
 
