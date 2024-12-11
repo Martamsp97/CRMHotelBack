@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-@host = http://localhost:3000
-@apiHabitaciones = {{host}}/api/habitaciones
+@host = http://localhost:3000/api
+@apiHabitaciones = {{host}}/habitaciones
 
 #######################
 #    HABITACIONES     #
@@ -45,7 +44,6 @@ Content-Type: application/json
 ###
 DELETE {{apiHabitaciones}}/3
 
-=======
 @host = http://localhost:3000/api
 
 GET {{host}}/reservas
@@ -113,4 +111,3 @@ Content-Type: application/json
     "email":"toño@gmail.com",
     "password":"12345"
 }
->>>>>>> a1957c907d39840e6c1938c561d7ee26039c3b37
