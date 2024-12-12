@@ -71,11 +71,23 @@ const filterByFecha = async (req, res, next) => {
     }
 }
 
+const destroyReserva = async (req, res, next) => {
+    const { reservaId } = req.params
+    try {
+        const reserva = await Reserva.findByPk(reservaId)
+        reserva.destroy()
+        res.json(reserva)
+    } catch (error) {
+        next(error)
+    }
+}
+
 module.exports = {
     getReservas,
     getReservaById,
     updateReserva,
     createReserva,
     filterByCliente,
-    filterByFecha
+    filterByFecha,
+    destroyReserva
 }

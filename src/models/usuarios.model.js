@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db')
+const sequelize = require('../config/db');
+const { Reserva } = require('./reservas.model');
+const Habitacion = require('./habitaciones.model');
 
 
 const Usuario = sequelize.define('Usuario', {
@@ -21,7 +23,7 @@ const Usuario = sequelize.define('Usuario', {
     },
     fecha_nacimiento: {
         type: DataTypes.DATEONLY,
-        allowNull: true
+        allowNull: false
     },
     dni: {
         type: DataTypes.STRING(9),
@@ -70,5 +72,7 @@ const Usuario = sequelize.define('Usuario', {
 }, {
     sequelize, tableName: 'usuarios', timestamps: false
 });
+Usuario.hasMany(Reserva, { as: 'reservas', foreignKey: 'usuario_id' });
+Usuario.hasMany(Habitacion, { as: "habitaciones", foreignKey: 'usuario_id' });
 
 module.exports = Usuario
