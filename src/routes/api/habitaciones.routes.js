@@ -1,16 +1,18 @@
 const { getAll, create, getById, update, destroy } = require('../../controllers/habitacion.controller');
+const { checkHabId } = require('../../middlewares/habitaciones.middleware');
+const { checkAdmin } = require('../../middlewares/usuarios.middlewares');
 
 const router = require('express').Router();
 
 router.get('/', getAll);
 
-router.get('/:roomId', getById );
+router.get('/:roomId', checkHabId, getById);
 
-router.post('/', create);
+router.post('/', checkAdmin, create);
 
-router.put('/:roomId', update );
+router.put('/:roomId', checkAdmin, checkHabId, update);
 
-router.delete('/:roomId', destroy);
+router.delete('/:roomId', checkAdmin, checkHabId, destroy);
 
 
 

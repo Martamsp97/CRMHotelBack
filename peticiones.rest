@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 @host = http://localhost:3000
+=======
+@host = http://localhost:3000/api
+<<<<<<< HEAD
+@apiHabitaciones = {{host}}/habitaciones
+=======
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179
 @apiHabitaciones = {{host}}/api/habitaciones
+>>>>>>> c744a92cee970131f42c1d289a1ff6faaa2e3815
 
 #######################
 #    HABITACIONES     #
@@ -44,7 +52,13 @@ Content-Type: application/json
 ###
 DELETE {{apiHabitaciones}}/3
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179
 @host = http://localhost:3000/api
+=======
+>>>>>>> c744a92cee970131f42c1d289a1ff6faaa2e3815
 
 GET {{host}}/reservas
 
@@ -111,5 +125,8 @@ Content-Type: application/json
     "email":"toño@gmail.com",
     "password":"12345"
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179

@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 const { DataTypes } = require('sequelize')
 
 const sequelize = require('../config/db')
+=======
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
+const { Reserva } = require('./reservas.model');
+const Habitacion = require('./habitaciones.model');
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179
 
 
 const Usuario = sequelize.define('Usuario', {
@@ -22,7 +29,7 @@ const Usuario = sequelize.define('Usuario', {
     },
     fecha_nacimiento: {
         type: DataTypes.DATEONLY,
-        allowNull: true
+        allowNull: false
     },
     dni: {
         type: DataTypes.STRING(9),
@@ -63,7 +70,7 @@ const Usuario = sequelize.define('Usuario', {
         allownull: false
     },
     cod_postal: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(10),
         allownull: false
     }
 
@@ -71,5 +78,7 @@ const Usuario = sequelize.define('Usuario', {
 }, {
     sequelize, tableName: 'usuarios', timestamps: false
 });
+Usuario.hasMany(Reserva, { as: 'reservas', foreignKey: 'usuario_id' });
+Usuario.hasMany(Habitacion, { as: "habitaciones", foreignKey: 'usuario_id' });
 
 module.exports = Usuario

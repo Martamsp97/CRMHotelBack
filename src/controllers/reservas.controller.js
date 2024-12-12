@@ -43,9 +43,40 @@ const createReserva = async (req, res, next) => {
     }
 }
 
-const filterByCliente = (req, res, next) => {
+const filterByCliente = async (req, res, next) => {
     try {
+        const { clienteId } = req.params
+        const reserva = await Reserva.findAll({
+            where: {
+                clienteId
+            }
+        })
+        res.json(reserva)
+    } catch (error) {
+        next(error)
+    }
+}
 
+const filterByFecha = async (req, res, next) => {
+    try {
+        const { fecha_entrada } = req.params
+        const reserva = await Reserva.findAll({
+            where: {
+                fecha_entrada
+            }
+        })
+        res.json(reserva)
+    } catch (error) {
+        next(error)
+    }
+}
+
+const destroyReserva = async (req, res, next) => {
+    const { reservaId } = req.params
+    try {
+        const reserva = await Reserva.findByPk(reservaId)
+        reserva.destroy()
+        res.json(reserva)
     } catch (error) {
         next(error)
     }
@@ -56,6 +87,7 @@ module.exports = {
     getReservaById,
     updateReserva,
     createReserva,
-    filterByCliente
-
+    filterByCliente,
+    filterByFecha,
+    destroyReserva
 }
