@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 const { DataTypes } = require('sequelize')
-=======
-const { DataTypes } = require('sequelize');
->>>>>>> feature-controlleruser
+
 const sequelize = require('../config/db')
 
 

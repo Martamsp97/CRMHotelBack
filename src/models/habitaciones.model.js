@@ -1,54 +1,58 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/db");
 
 const Habitacion = sequelize.define(
-    'habitaciones', 
-    {
+  "habitaciones",
+  {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
     },
     piso: {
-        type: DataTypes.INTEGER,
-        allowNull: true
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     puerta: {
-        type: DataTypes.INTEGER,
-        unique: true,
-        allowNull: true
+      type: DataTypes.INTEGER,
+      unique: true,
+      allowNull: true,
     },
     mascotas: {
-        type: DataTypes.INTEGER,
-        allowNull: true
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     num_camas: {
-        type: DataTypes.STRING(45),
-        allownull: false,
+      type: DataTypes.STRING(45),
+      allownull: false,
     },
     categoria: {
-        type: DataTypes.STRING(45),
-        allownull: false,
+      type: DataTypes.STRING(45),
+      allownull: false,
     },
     precio: {
-        type: DataTypes.INTEGER,
-        allownull: false,
+      type: DataTypes.INTEGER,
+      allownull: false,
     },
     tamanho: {
-        type: DataTypes.STRING(45),
-        allownull: true,
+      type: DataTypes.STRING(45),
+      allownull: true,
     },
-    ubicacion: {
-        type: DataTypes.STRING(45),
-        allownull: false
+    vista: {
+      type: DataTypes.STRING(45),
+      allownull: false,
     },
     cocina: {
-        type: DataTypes.TINYINT,
-        allownull: false
-    }
-}, {
-    sequelize, tableName: 'habitaciones', timestamps: false
-});
+      type: DataTypes.STRING(45),
+      allownull: false,
+    },
+  },
+  {
+    sequelize,
+    tableName: "habitaciones",
+    timestamps: false,
+  }
+);
 
 module.exports = Habitacion;
