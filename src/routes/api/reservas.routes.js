@@ -4,12 +4,9 @@ const { checkUsuarioId, checkToken, checkAdmin } = require('../../middlewares/us
 
 const router = require('express').Router();
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> feature-middlewares
 router.get('/', getReservas)
 router.get('/usuarios/:usuarioId', checkUsuarioId, filterByCliente)
 router.get('/fecha/:fecha_entrada', checkFechasReserva, filterByFecha)
@@ -22,3 +19,4 @@ router.put('/:reservaId', checkAdmin, updateReserva)
 router.delete('/:reservaId', checkToken, destroyReserva)
 
 module.exports = router
+

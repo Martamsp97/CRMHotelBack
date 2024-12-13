@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 const Usuario = require('../models/usuarios.model');
 
-<<<<<<< HEAD
-=======
 const checkToken = async (req, res, next) => {
 
     if (!req.headers['authorization']) {
@@ -69,4 +67,3 @@ const checkBodyUsuario = async (req, res, next) => {
 }
 
 module.exports = { checkToken, checkAdmin, checkUsuarioId, checkBodyUsuario }
->>>>>>> feature-middlewares
