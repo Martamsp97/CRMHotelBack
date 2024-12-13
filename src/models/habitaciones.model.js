@@ -1,7 +1,7 @@
 const { DataTypes, HasMany } = require('sequelize');
 const sequelize = require('../config/db');
-/* const { Reserva } = require('./reservas.model');
-const Usuario = require('./usuarios.model'); */
+const { Reserva } = require('./reservas.model');
+
 
 const Habitacion = sequelize.define(
     'habitaciones',
@@ -53,8 +53,6 @@ const Habitacion = sequelize.define(
     sequelize, tableName: 'habitaciones', timestamps: false
 });
 
-
-/* Habitacion.belongsToMany(Reserva, { through: 'HabitacionReservas', foreignKey: 'habitacion_id' });
-Reserva.belongsToMany(Habitacion, { through: 'HabitacionReservas', foreignKey: 'reserva_id' }); */
+Habitacion.belongsToMany(Reserva, { through: ' reserva_habitaciones', foreignKey: 'habitaciones_id', as: 'habitaciones' });
 
 module.exports = Habitacion;
