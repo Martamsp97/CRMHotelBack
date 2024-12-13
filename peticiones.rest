@@ -1,5 +1,9 @@
+
 @host = http://localhost:3000/api
 @apiHabitaciones = {{host}}/habitaciones
+
+
+
 
 #######################
 #    HABITACIONES     #
@@ -21,8 +25,8 @@ Content-Type: application/json
 "categoria": "Premium",
 "precio": 470,
 "tamanho": "Mediana",
-"ubicacion": "Interior",
-"cocina" : 0
+"vista": "Interior",
+"cocina" : "Incluye"
 }
 
 ###
@@ -37,8 +41,8 @@ Content-Type: application/json
 "categoria": "Deluxe",
 "precio": 509,
 "tamanho": "Grande",
-"ubicacion": "Exterior",
-"cocina" : 1
+"vista": "Exterior",
+"cocina" : "Incluye"
 }
 
 ###
@@ -111,3 +115,5 @@ Content-Type: application/json
     "email":"luisa@gmail.com",
     "password":"12345"
 }
+
+

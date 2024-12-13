@@ -6,11 +6,11 @@ const router = require('express').Router();
 
 
 
-
 router.get('/', getReservas)
 router.get('/usuarios/:usuarioId', checkUsuarioId, filterByCliente)
 router.get('/fecha/:fecha_entrada', checkFechasReserva, filterByFecha)
 router.get('/:reservaId', checkToken, getReservaById)
+
 
 router.post('/', checkToken, createReserva)
 
@@ -19,3 +19,4 @@ router.put('/:reservaId', checkToken, checkAdmin, updateReserva)
 router.delete('/:reservaId', checkToken, destroyReserva)
 
 module.exports = router
+
