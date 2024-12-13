@@ -5,29 +5,29 @@ const ReservaHabitacion = require('./habitres.model');
 
 
 const Habitacion = sequelize.define(
-    'habitaciones',
+    "habitaciones",
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
         },
         piso: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
         },
         puerta: {
             type: DataTypes.INTEGER,
             unique: true,
-            allowNull: true
+            allowNull: true,
         },
         mascotas: {
-            type: DataTypes.TINYINT,
-            allowNull: true
+            type: DataTypes.INTEGER,
+            allowNull: true,
         },
         num_camas: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING(45),
             allownull: false,
         },
         categoria: {
@@ -42,18 +42,21 @@ const Habitacion = sequelize.define(
             type: DataTypes.STRING(45),
             allownull: true,
         },
-        ubicacion: {
+        vista: {
             type: DataTypes.STRING(45),
-            allownull: false
+            allownull: false,
         },
         cocina: {
-            type: DataTypes.TINYINT,
-            allownull: false
-        }
-    }, {
-    sequelize, tableName: 'habitaciones', timestamps: false
-});
-
+            type: DataTypes.STRING(45),
+            allownull: false,
+        },
+    },
+    {
+        sequelize,
+        tableName: "habitaciones",
+        timestamps: false,
+    }
+);
 
 ReservaHabitacion.belongsTo(Habitacion, { as: 'habitaciones', foreignKey: 'habitaciones_id' });
 Habitacion.hasMany(ReservaHabitacion, { as: 'reserva_habitaciones', foreignKey: 'habitaciones_id' });
