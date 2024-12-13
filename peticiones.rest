@@ -44,13 +44,17 @@ Content-Type: application/json
 ###
 DELETE {{apiHabitaciones}}/3
 
-
+###
 GET {{host}}/reservas
 
 ###
 
 GET {{host}}/reservas/1
 
+
+###
+
+GET {{host}}/reservas/fecha/2024-12-18/2024-12-25
 
 ###
 
