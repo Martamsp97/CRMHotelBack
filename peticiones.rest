@@ -1,9 +1,12 @@
 
 @host = http://localhost:3000/api
 @apiHabitaciones = {{host}}/habitaciones
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> feature-movidongos
 
 #######################
 #    HABITACIONES     #
@@ -58,6 +61,10 @@ GET {{host}}/reservas
 
 GET {{host}}/reservas/1
 
+
+###
+
+GET {{host}}/reservas/fecha/2024-12-18/2024-12-25
 
 ###
 
