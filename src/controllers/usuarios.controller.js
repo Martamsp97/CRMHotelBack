@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const Usuario = require('../models/usuarios.model');
 const createToken = require('../../utils/helpers');
+const { Reserva } = require('../models/reservas.model');
 
 
 
@@ -32,7 +33,22 @@ const login = async (req, res, next) => {
     }
 }
 
+const getUsuarioByDni = async (req, res, next) => {
+    const { usDni } = req.params
+    try {
+        const usuario = await Usuario.findOne({
+            where: { dni: usDni },
+            include: ['reservas']
+        });
+        res.json(usuario);
+
+    } catch (error) {
+
+    }
+}
+
+
 
 module.exports = {
-    registro, login
+    registro, login, getUsuarioByDni
 }
