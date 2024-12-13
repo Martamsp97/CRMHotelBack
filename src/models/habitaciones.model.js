@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 const { DataTypes, HasMany } = require("sequelize");
 const sequelize = require("../config/db");
 const { Reserva } = require("./reservas.model");
 const Usuario = require("./usuarios.model");
+=======
+const { DataTypes, HasMany } = require('sequelize');
+const sequelize = require('../config/db');
+/* const { Reserva } = require('./reservas.model');
+const Usuario = require('./usuarios.model'); */
+>>>>>>> develop
 
 const Habitacion = sequelize.define(
   "habitaciones",

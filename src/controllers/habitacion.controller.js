@@ -21,6 +21,24 @@ const getById = async (req, res, next) => {
   }
 };
 
+const getHabByPiso = async (req, res, next) => {
+  const { piso } = req.params;
+  try {
+
+    const habitaciones = await Habitacion.findAll({
+      where: {
+        piso: piso
+      }, include: ['reservas']
+    });
+    res.json(habitaciones);
+
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+
 const create = async (req, res, next) => {
   try {
     const habitacion = await Habitacion.create(req.body);
@@ -57,6 +75,7 @@ const destroy = async (req, res, next) => {
 module.exports = {
   getAll,
   getById,
+  getHabByPiso,
   create,
   update,
   destroy,

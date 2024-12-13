@@ -14,6 +14,9 @@ GET {{apiHabitaciones}}
 GET {{apiHabitaciones}}/1
 
 ###
+GET {{apiHabitaciones}}/piso/2
+
+###
 POST {{apiHabitaciones}}
 Content-Type: application/json
 
@@ -48,7 +51,7 @@ Content-Type: application/json
 ###
 DELETE {{apiHabitaciones}}/3
 
-
+###
 GET {{host}}/reservas
 
 ###
@@ -107,6 +110,8 @@ Content-Type: application/json
 
 }
 
+###
+GET {{host}}/usuarios/96576437G
 ###
 POST {{host}}/usuarios/login
 Content-Type: application/json

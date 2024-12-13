@@ -1,4 +1,4 @@
-const Reserva = require('../models/reservas.model')
+const { Reserva } = require('../models/reservas.model')
 
 const getReservas = async (req, res, next) => {
     try {
