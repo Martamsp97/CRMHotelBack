@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+const { DataTypes } = require('sequelize')
+
+const sequelize = require('../config/db')
+=======
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const { Reserva } = require('./reservas.model');
 const Habitacion = require('./habitaciones.model');
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179
 
 
 const Usuario = sequelize.define('Usuario', {

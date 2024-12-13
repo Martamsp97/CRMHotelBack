@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+@host = http://localhost:3000
+=======
 @host = http://localhost:3000/api
 <<<<<<< HEAD
 @apiHabitaciones = {{host}}/habitaciones
 =======
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179
 @apiHabitaciones = {{host}}/api/habitaciones
 >>>>>>> c744a92cee970131f42c1d289a1ff6faaa2e3815
 
@@ -25,8 +29,8 @@ Content-Type: application/json
 "categoria": "Premium",
 "precio": 470,
 "tamanho": "Mediana",
-"ubicacion": "Interior",
-"cocina" : 0
+"vista": "Interior",
+"cocina" : "Incluye"
 }
 
 ###
@@ -41,14 +45,17 @@ Content-Type: application/json
 "categoria": "Deluxe",
 "precio": 509,
 "tamanho": "Grande",
-"ubicacion": "Exterior",
-"cocina" : 1
+"vista": "Exterior",
+"cocina" : "Incluye"
 }
 
 ###
 DELETE {{apiHabitaciones}}/3
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179
 @host = http://localhost:3000/api
 =======
 >>>>>>> c744a92cee970131f42c1d289a1ff6faaa2e3815
@@ -118,3 +125,8 @@ Content-Type: application/json
     "email":"toño@gmail.com",
     "password":"12345"
 }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 93db7e60de979a20f8db6f2b0b822eb49a26b179

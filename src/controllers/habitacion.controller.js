@@ -24,7 +24,7 @@ const getById = async (req, res, next) => {
 const create = async (req, res, next) => {
   try {
     const habitacion = await Habitacion.create(req.body);
-res.json(habitacion);
+    res.json(habitacion);
   } catch (error) {
     next(error);
   }
@@ -43,7 +43,6 @@ const update = async (req, res, next) => {
 
 //Delete
 
-
 const destroy = async (req, res, next) => {
   const { roomId } = req.params;
   try {
@@ -55,12 +54,10 @@ const destroy = async (req, res, next) => {
   }
 };
 
-
-
 module.exports = {
-    getAll,
-    getById,
-    create,
-    update,
-    destroy
+  getAll,
+  getById,
+  create,
+  update,
+  destroy,
 };

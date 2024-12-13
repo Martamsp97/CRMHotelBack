@@ -3,9 +3,10 @@ const { checkBodyUsuario, checkToken, checkAdmin } = require('../../middlewares/
 
 const router = require('express').Router();
 
+
+
 router.post('/registro', checkBodyUsuario, registro);
 router.post('/login', checkToken, login)
 
 module.exports = router
-
 
