@@ -61,7 +61,12 @@ GET {{host}}/reservas
 
 GET {{host}}/reservas/1
 
+###
 
+
+GET {{host}}/reservas/dni/77777777G
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo0LCJ1c3VhcmlvX3JvbCI6ImFkbWluIiwiaWF0IjoxNzM0MTEwNzI5fQ.xZIe0HhuVhT6-KAy3CwqXz3KGGnC1IUe8OZ18jdtVZo
 ###
 
 GET {{host}}/reservas/fecha/2024-12-18/2024-12-25

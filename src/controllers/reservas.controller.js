@@ -1,4 +1,5 @@
-const Reserva = require('../models/reservas.model')
+const { Reserva } = require('../models/reservas.model')
+const Usuario = require('../models/usuarios.model')
 const { Op } = require('sequelize')
 
 const getReservas = async (req, res, next) => {
@@ -103,6 +104,30 @@ const filterByFechaEntradaySalida = async (req, res, next) => {
     }
 }
 
+const filterByDni = async (req, res, next) => {
+    try {
+
+        const { usuarioDni } = req.params;
+        const reservas = await Reserva.findAll({
+            include: [
+                {
+                    model: Usuario,
+                    where: {
+                        usuarioDni,
+                    },
+                    attributes: [],
+                },
+            ],
+        });
+
+        res.json(reservas);
+    } catch (error) {
+        next(error);
+    }
+};
+
+
+
 module.exports = {
     getReservas,
     getReservaById,
@@ -111,5 +136,6 @@ module.exports = {
     filterByCliente,
     filterByFecha,
     destroyReserva,
-    filterByFechaEntradaySalida
+    filterByFechaEntradaySalida,
+    filterByDni
 }
