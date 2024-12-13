@@ -7,6 +7,12 @@ const { DataTypes } = require('sequelize');
 const ReservaHabitacion = sequelize.define(
     'reserva_habitaciones',
     {
+        id: {
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false,
+            type: DataTypes.INTEGER
+        },
 
         reservas_id: {
             type: DataTypes.INTEGER,
