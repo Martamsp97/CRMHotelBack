@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
 const Usuario = require('./usuarios.model');
-const Habitacion = require('./habitaciones.model');
+const ReservaHabitacion = require('./habitres.model');
 
 const Reserva = sequelize.define('Reserva', {
     id: {
@@ -82,8 +82,8 @@ const Reserva = sequelize.define('Reserva', {
 Usuario.hasMany(Reserva, { as: 'reservas', foreignKey: 'usuarios_id' });
 Reserva.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuarios_id' });
 
-Reserva.belongsToMany(Habitacion, { through: 'reserva_habitaciones', foreignKey: 'reservas_id', as: 'reservas' });
-
+ReservaHabitacion.belongsTo(Reserva, { as: 'reservas', foreignKey: 'reservas_id' });
+Reserva.hasMany(ReservaHabitacion, { as: 'reserva_habitaciones', foreignKey: 'reservas_id' });
 
 
 

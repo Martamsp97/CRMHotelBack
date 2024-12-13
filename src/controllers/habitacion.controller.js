@@ -28,7 +28,7 @@ const getHabByPiso = async (req, res, next) => {
     const habitaciones = await Habitacion.findAll({
       where: {
         piso: piso
-      }, include: ['reservas']
+      }, include: ['reserva_habitaciones']
     });
     res.json(habitaciones);
 
