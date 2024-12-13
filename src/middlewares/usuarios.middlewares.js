@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Usuario = require('../models/usuarios.model');
+const dayjs = require('dayjs');
 
-<<<<<<< HEAD
-=======
 const checkToken = async (req, res, next) => {
 
     if (!req.headers['authorization']) {
@@ -18,7 +17,11 @@ const checkToken = async (req, res, next) => {
     const usuario = await Usuario.findOne({ where: { id: data.usuario_id } });
     if (!usuario) {
         return res.status(403).json({ message: 'No user found' });
-    } next();
+    }
+
+    req.user = usuario;
+
+    next();
 }
 
 const checkAdmin = async (req, res, next) => {
@@ -56,12 +59,12 @@ const checkBodyUsuario = async (req, res, next) => {
 
     //OBJETIVO: El DNI debe tener formato correcto
 
-    const dniExpresionRegular = /^\d{9}[A-Za-z]$/;
-
-    if (!dni || !dniExpresionRegular.test(dni)) {
-        return res.status(400).json({ message: 'El dni no es válido' });
-    }
-
+    /*   const dniExpresionRegular = /^\d{9}[A-Za-z]$/;
+  
+      if (!dni || !dniExpresionRegular.test(dni)) {
+          return res.status(400).json({ message: 'El dni no es válido' });
+      }
+   */
     if (dayjs().diff(fecha_nacimiento, 'years') <= 18) {
         return res.status(400).json({ message: 'Debes tener como mínimo 18 años' })
     }
@@ -69,4 +72,3 @@ const checkBodyUsuario = async (req, res, next) => {
 }
 
 module.exports = { checkToken, checkAdmin, checkUsuarioId, checkBodyUsuario }
->>>>>>> feature-middlewares

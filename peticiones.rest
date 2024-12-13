@@ -1,9 +1,5 @@
 @host = http://localhost:3000/api
-<<<<<<< HEAD
 @apiHabitaciones = {{host}}/habitaciones
-=======
-@apiHabitaciones = {{host}}/api/habitaciones
->>>>>>> c744a92cee970131f42c1d289a1ff6faaa2e3815
 
 #######################
 #    HABITACIONES     #
@@ -48,10 +44,6 @@ Content-Type: application/json
 ###
 DELETE {{apiHabitaciones}}/3
 
-<<<<<<< HEAD
-@host = http://localhost:3000/api
-=======
->>>>>>> c744a92cee970131f42c1d289a1ff6faaa2e3815
 
 GET {{host}}/reservas
 
@@ -97,16 +89,17 @@ POST {{host}}/usuarios/registro
 Content-Type: application/json
 
 {
-    "nombre":"Antonio",
-    "apellidos":"Gómez",
-    "dni":"98657654D",
-    "email":"toño@gmail.com",
+    "nombre":"Maria Luisa",
+    "apellidos":"Hernández",
+    "fecha_nacimiento":"1990-12-12",
+    "dni":"96576437G",
+    "email":"luisa@gmail.com",
     "password":"12345",
-    "rol":"cliente",
-    "telefono":789876543,
+    "rol":"admin",
+    "telefono":615274986,
     "ciudad":"Madrid",
     "pais":"España",
-    "cod_postal":28003
+    "cod_postal":28063
 
 }
 
@@ -115,6 +108,6 @@ POST {{host}}/usuarios/login
 Content-Type: application/json
 
 {
-    "email":"toño@gmail.com",
+    "email":"luisa@gmail.com",
     "password":"12345"
 }

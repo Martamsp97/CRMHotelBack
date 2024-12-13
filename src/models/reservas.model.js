@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const Usuario = require('../models/usuarios.model')
+const Usuario = require('./usuarios.model')
 const Habitacion = require('./habitaciones.model')
 
 const Reserva = sequelize.define('Reserva', {
@@ -76,7 +76,7 @@ const Reserva = sequelize.define('Reserva', {
     })
 
 
-Reserva.hasMany(Habitacion, { as: 'habitaciones', foreignKey: 'reserva_id' })
+
 const ReservaHabitacion = sequelize.define('ReservaHabitacion', {
     reserva_id: {
         type: DataTypes.INTEGER,
@@ -93,14 +93,14 @@ const ReservaHabitacion = sequelize.define('ReservaHabitacion', {
         }
     }
 }, {
-    sequelize, tableName: 'reserva_habitacion', timestamps: false
+    sequelize, tableName: 'reserva_habitaciones', timestamps: false
 });
 
 
 Reserva.belongsToMany(Habitacion, { through: ReservaHabitacion, as: 'habitaciones', foreignKey: 'reserva_id' });
 Habitacion.belongsToMany(Reserva, { through: ReservaHabitacion, as: 'reservas', foreignKey: 'habitacion_id' });
 
-Reserva.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuarios_id' })
+
 
 module.exports = { Reserva, ReservaHabitacion };
 
