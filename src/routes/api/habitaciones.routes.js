@@ -1,4 +1,4 @@
-const { getAll, create, getById, update, destroy } = require("../../controllers/habitacion.controller");
+const { getAll, create, getById, update, destroy, getHabByPiso } = require("../../controllers/habitacion.controller");
 
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 
