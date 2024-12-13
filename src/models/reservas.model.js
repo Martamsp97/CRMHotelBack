@@ -67,6 +67,10 @@ const Reserva = sequelize.define('Reserva', {
         allowNull: false,
         type: DataTypes.STRING(45)
     },
+    num_habitaciones: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+    },
     usuarios_id: {
         allowNull: false,
         type: DataTypes.INTEGER

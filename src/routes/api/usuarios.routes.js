@@ -3,11 +3,8 @@ const { checkBodyUsuario, checkToken } = require('../../middlewares/usuarios.mid
 
 const router = require('express').Router();
 
-
-
 router.post('/registro', checkBodyUsuario, registro);
 router.post('/login', login)
-
 router.get('/:usDni', getUsuarioByDni);
 
 module.exports = router
