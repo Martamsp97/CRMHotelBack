@@ -111,10 +111,11 @@ const filterByDni = async (req, res, next) => {
         const reservas = await Reserva.findAll({
             include: [
                 {
-                    model: Usuario,
-                    where: {
-                        usuarioDni,
-                    },
+                    model: Usuario, //union con el modelo de usuario
+                    as: 'usuario', // alias usado en la union del model
+                    where:
+                        { dni: usuarioDni }, // comparamos el campo de la tabla usuarios con lo que le pasamos por params
+
                     attributes: [],
                 },
             ],
