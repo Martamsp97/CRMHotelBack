@@ -1,8 +1,10 @@
 // Traer el modelo creado
 const Habitacion = require("../models/habitaciones.model");
+const ReservaHabitacion = require("../models/habitres.model");
 const Imagenes = require("../models/imagenes.model");
+const { Reserva } = require('../models/reservas.model');
+const fs = require('fs');
 
-// Funciones para las rutas de pacientes
 const getAll = async (req, res, next) => {
   try {
     const habitaciones = await Habitacion.findAll();
@@ -16,13 +18,31 @@ const getById = async (req, res, next) => {
   const { roomId } = req.params;
   try {
     const habitacion = await Habitacion.findByPk(roomId, {
-      include: ['imagenes']
+      include: ['imagenes', 'reserva_habitaciones']
     });
+    for (reserva of habitacion.reserva_habitaciones) {
+      console.log(reserva.reservas_id)
+      const reservaHab = await Reserva.findByPk(reserva.reservas_id)
+      console.log(reservaHab)
+      reserva.dataValues = reservaHab
+    }
+
     res.json(habitacion);
   } catch (error) {
     next(error);
   }
 };
+
+const createImagen = async (req, res, next) => {
+  try {
+    // - Renombrar la imagen -> REPO
+    // - Guardar la ruta de la imagen en la BD
+    res.json(req.file)
+  } catch (error) {
+    next(error)
+  }
+}
+
 
 const getHabByPiso = async (req, res, next) => {
   const { piso } = req.params;
@@ -109,6 +129,7 @@ module.exports = {
   getHabByCategoria,
   getHabByVista,
   create,
+  createImagen,
   update,
   destroy,
 };
