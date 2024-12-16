@@ -1,5 +1,6 @@
 // Traer el modelo creado
 const Habitacion = require("../models/habitaciones.model");
+const Imagenes = require("../models/imagenes.model");
 
 // Funciones para las rutas de pacientes
 const getAll = async (req, res, next) => {
@@ -14,7 +15,9 @@ const getAll = async (req, res, next) => {
 const getById = async (req, res, next) => {
   const { roomId } = req.params;
   try {
-    const habitacion = await Habitacion.findByPk(roomId);
+    const habitacion = await Habitacion.findByPk(roomId, {
+      include: ['imagenes']
+    });
     res.json(habitacion);
   } catch (error) {
     next(error);
@@ -63,6 +66,8 @@ const getHabByVista = async (req, res, next) => {
     next(error)
   }
 }
+
+
 
 const create = async (req, res, next) => {
   try {
