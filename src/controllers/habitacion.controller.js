@@ -37,7 +37,32 @@ const getHabByPiso = async (req, res, next) => {
   }
 }
 
+const getHabByCategoria = async (req, res, next) => {
+  const { categoria } = req.params;
+  try {
+    const habitaciones = await Habitacion.findAll({
+      where: {
+        categoria: categoria
+      }
+    });
+    res.json(habitaciones);
+  } catch (error) {
+    next(error)
+  }
+}
 
+const getHabByVista = async (req, res, next) => {
+  try {
+    const habitaciones = await Habitacion.findAll({
+      where: {
+        vista: req.params.vista
+      }
+    });
+    res.json(habitaciones);
+  } catch (error) {
+    next(error)
+  }
+}
 
 const create = async (req, res, next) => {
   try {
@@ -76,6 +101,8 @@ module.exports = {
   getAll,
   getById,
   getHabByPiso,
+  getHabByCategoria,
+  getHabByVista,
   create,
   update,
   destroy,

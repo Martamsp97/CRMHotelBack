@@ -1,10 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
-<<<<<<< HEAD
-=======
-// const { Reserva } = require("./reservas.model");
-
->>>>>>> feature-filtros
 
 
 
@@ -72,12 +67,6 @@ const Usuario = sequelize.define('Usuario', {
     type: DataTypes.STRING(10),
     allownull: false
   }
-<<<<<<< HEAD
-=======
-);
-// Usuario.hasMany(Reserva, { as: "reservas", foreignKey: "usuarios_id" });
-// Usuario.hasMany(Habitacion, { as: "habitaciones", foreignKey: 'usuario_id' });
->>>>>>> feature-filtros
 
 
 }, {
