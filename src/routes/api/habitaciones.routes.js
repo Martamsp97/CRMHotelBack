@@ -18,7 +18,7 @@ router.post('/', checkToken, checkAdmin, create);
 
 router.put('/:roomId', checkToken, checkAdmin, checkHabId, update);
 
-router.delete('/:roomId', checkToken, checkAdmin, checkHabId, destroy);
+router.delete('/:roomId', /* checkToken, checkAdmin, */ checkHabId, destroy);
 
 
 module.exports = router;

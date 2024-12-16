@@ -2,6 +2,7 @@ const { DataTypes, HasMany } = require('sequelize');
 const sequelize = require('../config/db');
 
 const ReservaHabitacion = require('./habitres.model');
+const Imagenes = require('./imagenes.model');
 
 
 const Habitacion = sequelize.define(
@@ -62,5 +63,6 @@ const Habitacion = sequelize.define(
 ReservaHabitacion.belongsTo(Habitacion, { as: 'habitaciones', foreignKey: 'habitaciones_id' });
 Habitacion.hasMany(ReservaHabitacion, { as: 'reserva_habitaciones', foreignKey: 'habitaciones_id' });
 
+Habitacion.hasMany(Imagenes, { as: 'imagenes', foreignKey: 'habitaciones_id' });
 
 module.exports = Habitacion;

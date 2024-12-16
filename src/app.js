@@ -5,10 +5,11 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+app.use(express.static('public'));
 //Route configuration
 // Ex.
 app.use('/api', require('./routes/api.routes'));
+
 
 // 404 handler
 app.use((req, res, next) => {
