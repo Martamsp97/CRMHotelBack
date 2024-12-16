@@ -15,7 +15,11 @@ GET {{apiHabitaciones}}/1
 
 ###
 GET {{apiHabitaciones}}/piso/2
+###
+GET {{apiHabitaciones}}/categoria/standard
 
+###
+GET {{apiHabitaciones}}/vista/int
 ###
 POST {{apiHabitaciones}}
 Content-Type: application/json

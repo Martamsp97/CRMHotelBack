@@ -30,6 +30,7 @@ const Habitacion = sequelize.define(
             type: DataTypes.STRING(45),
             allownull: false,
         },
+
         categoria: {
             type: DataTypes.STRING(45),
             allownull: false,
