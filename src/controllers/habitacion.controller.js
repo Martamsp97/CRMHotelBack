@@ -39,11 +39,28 @@ const createImagen = async (req, res, next) => {
   try {
     // - Renombrar la imagen -> REPO
     // - Guardar la ruta de la imagen en la BD
-    res.json(req.file);
+    // Antes de guardar el producto en la base de datos, modificamos la imagen para situarla donde nos interesa
+    const extension = '.' + req.file.mimetype.split('/')[1];
+
+    // Obtengo el nombre de la nueva imagen
+    const newName = req.file.filename + extension;
+
+    // Obtengo la ruta donde estará, adjuntándole la extensión
+    const newPath = req.file.path + extension;
+    console.log(newPath)
+    // Muevo la imagen para que reciba la extensión
+    fs.renameSync(req.file.path, newPath);
+
+    const imagenCreada = await Imagenes.create({
+      habitaciones_id: roomId,
+      ruta: (`images/${newName}`)
+    });
+
+    res.json(imagenCreada)
   } catch (error) {
-    next(error);
+    next(error)
   }
-};
+}
 
 const getHabByPiso = async (req, res, next) => {
   const { piso } = req.params;
