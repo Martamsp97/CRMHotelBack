@@ -37,6 +37,18 @@ const createImagen = async (req, res, next) => {
   try {
     // - Renombrar la imagen -> REPO
     // - Guardar la ruta de la imagen en la BD
+    // Antes de guardar el producto en la base de datos, modificamos la imagen para situarla donde nos interesa
+    const extension = '.' + req.file.mimetype.split('/')[1];
+    console.log(extension)
+    // Obtengo el nombre de la nueva imagen
+    const newName = req.file.filename + extension;
+    console.log(newName)
+    // Obtengo la ruta donde estará, adjuntándole la extensión
+    const newPath = req.file.path + extension;
+    console.log(newPath)
+    // Muevo la imagen para que resiba la extensión
+    fs.renameSync(req.file.path, newPath);
+
     res.json(req.file)
   } catch (error) {
     next(error)
