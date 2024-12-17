@@ -35,6 +35,7 @@ const getById = async (req, res, next) => {
 };
 
 const createImagen = async (req, res, next) => {
+  const { roomId } = req.params;
   try {
     // - Renombrar la imagen -> REPO
     // - Guardar la ruta de la imagen en la BD
