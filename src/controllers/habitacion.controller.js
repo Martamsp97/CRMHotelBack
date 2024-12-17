@@ -61,6 +61,16 @@ const createImagen = async (req, res, next) => {
     next(error)
   }
 }
+const deleteImagen = async (req, res, next) => {
+  const { imagenId } = req.params;
+  try {
+    const imagen = await Imagenes.findByPk(imagenId);
+    await imagen.destroy();
+    res.json(imagen);
+  } catch (error) {
+    next(error);
+  }
+}
 
 const getHabByPiso = async (req, res, next) => {
   const { piso } = req.params;
@@ -145,6 +155,7 @@ module.exports = {
   getHabByVista,
   create,
   createImagen,
+  deleteImagen,
   update,
   destroy,
 };

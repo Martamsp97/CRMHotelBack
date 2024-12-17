@@ -5,6 +5,7 @@ const {
   destroy,
   getHabByPiso,
   getAll,
+  deleteImagen,
 } = require("../../controllers/habitacion.controller");
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 const {
@@ -20,6 +21,8 @@ router.get("/piso/:piso", getHabByPiso);
 router.get("/:roomId", checkHabId, getById);
 
 router.post("/", checkToken, checkAdmin, create);
+
+router.delete("/imagen/:imagenId", checkToken, checkAdmin, deleteImagen);
 
 router.put("/:roomId", checkToken, checkAdmin, checkHabId, update);
 
