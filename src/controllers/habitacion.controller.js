@@ -2,8 +2,8 @@
 const Habitacion = require("../models/habitaciones.model");
 const ReservaHabitacion = require("../models/habitres.model");
 const Imagenes = require("../models/imagenes.model");
-const { Reserva } = require('../models/reservas.model');
-const fs = require('fs');
+const { Reserva } = require("../models/reservas.model");
+const fs = require("fs");
 
 const getAll = async (req, res, next) => {
   try {
@@ -18,16 +18,17 @@ const getById = async (req, res, next) => {
   const { roomId } = req.params;
   try {
     const habitacion = await Habitacion.findByPk(roomId, {
-      include: ['imagenes', 'reserva_habitaciones']
+      include: ["imagenes", "reserva_habitaciones"],
     });
     for (reserva of habitacion.reserva_habitaciones) {
-      console.log(reserva.reservas_id)
-      const reservaHab = await Reserva.findByPk(reserva.reservas_id)
-      console.log(reservaHab)
-      reserva.dataValues = reservaHab
+      console.log(reserva.reservas_id);
+      const reservaHab = await Reserva.findByPk(reserva.reservas_id);
+      console.log(reservaHab);
+      reserva.dataValues = reservaHab;
     }
 
-    res.json(habitacion);
+    console.log(habitacion);
+    habitacion;
   } catch (error) {
     next(error);
   }
@@ -37,57 +38,53 @@ const createImagen = async (req, res, next) => {
   try {
     // - Renombrar la imagen -> REPO
     // - Guardar la ruta de la imagen en la BD
-    res.json(req.file)
+    res.json(req.file);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
-
+};
 
 const getHabByPiso = async (req, res, next) => {
   const { piso } = req.params;
   try {
-
     const habitaciones = await Habitacion.findAll({
       where: {
-        piso: piso
-      }, include: ['reserva_habitaciones']
+        piso: piso,
+      },
+      include: ["reserva_habitaciones"],
     });
     res.json(habitaciones);
-
   } catch (error) {
     next(error);
   }
-}
+};
 
 const getHabByCategoria = async (req, res, next) => {
   const { categoria } = req.params;
   try {
     const habitaciones = await Habitacion.findAll({
       where: {
-        categoria: categoria
-      }
+        categoria: categoria,
+      },
     });
     res.json(habitaciones);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
 
 const getHabByVista = async (req, res, next) => {
   try {
     const habitaciones = await Habitacion.findAll({
       where: {
-        vista: req.params.vista
-      }
+        vista: req.params.vista,
+      },
     });
     res.json(habitaciones);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
-
-
+};
 
 const create = async (req, res, next) => {
   try {

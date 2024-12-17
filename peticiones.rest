@@ -11,7 +11,7 @@
 GET {{apiHabitaciones}}
 
 ###
-GET {{apiHabitaciones}}/1
+GET {{apiHabitaciones}}/2
 
 ###
 GET {{apiHabitaciones}}/piso/2
