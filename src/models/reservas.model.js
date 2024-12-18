@@ -40,8 +40,8 @@ const Reserva = sequelize.define('Reserva', {
         type: DataTypes.STRING(45)
     },
     desayuno: {
-        allowNull: true,
-        type: DataTypes.BOOLEAN
+        allowNull: false,
+        type: DataTypes.STRING(45)
     },
     spa: {
         allowNull: true,

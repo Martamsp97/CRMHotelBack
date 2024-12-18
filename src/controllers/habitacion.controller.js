@@ -38,6 +38,8 @@ const getById = async (req, res, next) => {
   }
 };
 
+
+
 const createImagen = async (req, res, next) => {
   const { roomId } = req.params;
   try {
