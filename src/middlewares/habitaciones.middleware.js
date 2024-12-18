@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const Habitacion = require('../models/habitaciones.model');
 
 const checkHabId = async (req, res, next) => {
+    console.log(req.params);
     const { roomId } = req.params;
     if (isNaN(roomId)) {
         return res.status(400).send('el roomId tiene que ser un num');

@@ -28,7 +28,7 @@ const getById = async (req, res, next) => {
     }
 
     console.log(habitacion);
-    habitacion;
+    res.json(habitacion);
   } catch (error) {
     next(error);
   }
