@@ -10,7 +10,10 @@ const {
   getHabByPiso,
   getAll,
   deleteImagen,
-  createImagen
+  createImagen,
+  getHabByCategoria,
+  getHabByVista,
+  getHabByFecha
 } = require("../../controllers/habitacion.controller");
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 const {
