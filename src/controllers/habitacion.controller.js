@@ -127,35 +127,6 @@ const destroy = async (req, res, next) => {
   }
 };
 
-/* const getHabByFecha = async (req, res, next) => {
-  try {
-    const { fecha_entrada, fecha_salida } = req.params;
-    const habitaciones = await Habitacion.findAll({
-      include: [
-        {
-          model: ReservaHabitacion,
-          include: [
-            {
-              model: Reserva,
-              as: 'reserva_habitaciones',
-              where: {
-                fecha_entrada: {
-                  [Op.gte]: fecha_entrada
-                },
-                fecha_salida: {
-                  [Op.lte]: fecha_salida
-                }
-              }
-            }
-          ]
-        }
-      ]
-    })
-    res.json(habitaciones);
-  } catch (error) {
-    next(error);
-  }
-} */
 const getHabByFecha = async (req, res, next) => {
   try {
     const { fecha_entrada, fecha_salida } = req.params;

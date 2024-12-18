@@ -1,6 +1,8 @@
+const Habitacion = require('../models/habitaciones.model')
 const { Reserva } = require('../models/reservas.model')
 const Usuario = require('../models/usuarios.model')
 const { Op } = require('sequelize')
+const dayjs = require('dayjs');
 
 const getReservas = async (req, res, next) => {
     try {
@@ -36,11 +38,24 @@ const updateReserva = async (req, res, next) => {
 }
 
 const createReserva = async (req, res, next) => {
-    console.log(req.body)
     try {
+        // Agregar el usuarios_id con el usuario logado
+        req.body.usuarios_id = req.user.id;
+        // Agregar el estado de la reserva
+        req.body.estado = 'Confirmada';
+        // Recuperar la información de la habitación a partir de habitacion_id
+        const habitacion = await Habitacion.findByPk(req.body.habitacion_id);
+        // Calcular el número de noches
+        const fecha_entrada = dayjs(req.body.fecha_entrada);
+        const fecha_salida = dayjs(req.body.fecha_salida);
+        const noches = fecha_salida.diff(fecha_entrada, 'day');
+        // Calcular el precio total de la reserva
+        req.body.precio = noches * habitacion.precio;
+
         const reserva = await Reserva.create(req.body)
         res.json(reserva)
     } catch (error) {
+        console.log(error);
         next(error)
     }
 }
