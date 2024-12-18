@@ -10,7 +10,9 @@ const {
   getHabByPiso,
   getAll,
   deleteImagen,
-  createImagen
+  createImagen,
+  getHabByCategoria,
+  getHabByVista
 } = require("../../controllers/habitacion.controller");
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 const {
@@ -21,6 +23,8 @@ const {
 router.get("/", getAll);
 
 router.get("/piso/:piso", getHabByPiso);
+router.get("/categoria/:categoria", getHabByCategoria);
+router.get("/vista/:vista", getHabByVista);
 
 router.get("/:roomId", checkHabId, getById);
 
