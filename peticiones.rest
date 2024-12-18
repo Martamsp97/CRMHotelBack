@@ -138,5 +138,9 @@ Content-Type: application/json
 POST {{host}}/habitaciones/imagenes/1
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo3LCJ1c3VhcmlvX3JvbCI6ImFkbWluIiwiaWF0IjoxNzM0MzkyNjg2fQ.5CPjuToxmh8gLtHEWjjTPLsin3N07Du3JzZi7okM98g
+###
+DELETE {{host}}/habitaciones/imagenes/5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo3LCJ1c3VhcmlvX3JvbCI6ImFkbWluIiwiaWF0IjoxNzM0MzkyNjg2fQ.5CPjuToxmh8gLtHEWjjTPLsin3N07Du3JzZi7okM98g
 
 

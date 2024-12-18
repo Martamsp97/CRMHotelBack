@@ -31,7 +31,7 @@ router.get("/:roomId", checkHabId, getById);
 router.post("/", checkToken, checkAdmin, create);
 router.post('/imagenes/:roomId', checkToken, checkAdmin, checkHabId, upload.single("imagen"), createImagen);
 
-router.delete("/imagen/:imagenId", checkToken, checkAdmin, deleteImagen);
+router.delete("/imagenes/:imagenId", checkToken, checkAdmin, deleteImagen);
 
 router.put("/:roomId", checkToken, checkAdmin, checkHabId, update);
 
