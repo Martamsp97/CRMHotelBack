@@ -1,9 +1,19 @@
+const { Op } = require('sequelize')
+const sequelize = require('../config/db');
+const { QueryTypes } = require('sequelize');
+
 // Traer el modelo creado
 const Habitacion = require("../models/habitaciones.model");
 const ReservaHabitacion = require("../models/habitres.model");
 const Imagenes = require("../models/imagenes.model");
+<<<<<<< HEAD
 const { Reserva } = require("../models/reservas.model");
 const fs = require("fs");
+=======
+const { Reserva } = require('../models/reservas.model');
+const fs = require('fs');
+const { get } = require("../routes/api/habitaciones.routes");
+>>>>>>> feature-reservas
 
 const getAll = async (req, res, next) => {
   try {
@@ -147,6 +157,18 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const getHabByFecha = async (req, res, next) => {
+  try {
+    const { fecha_entrada, fecha_salida } = req.params;
+    const habitaciones = await sequelize.query('SELECT * FROM habitaciones h WHERE id NOT IN( SELECT h.id FROM habitaciones h INNER JOIN reserva_habitaciones rh ON h.id = rh.habitaciones_id INNER JOIN reservas r  ON  rh.reservas_id = r.id WHERE fecha_entrada BETWEEN  ? AND  ?)', {
+      replacements: [fecha_entrada, fecha_salida],
+      type: QueryTypes.SELECT,
+    });
+    res.json(habitaciones);
+  } catch (error) {
+    next(error);
+  }
+}
 module.exports = {
   getAll,
   getById,
@@ -158,4 +180,5 @@ module.exports = {
   deleteImagen,
   update,
   destroy,
+  getHabByFecha
 };

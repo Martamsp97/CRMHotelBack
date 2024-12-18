@@ -37,6 +37,9 @@ Content-Type: application/json
 }
 
 ###
+GET {{apiHabitaciones}}/busqueda/2025-12-24/2025-12-30
+
+###
 PUT {{apiHabitaciones}}/2
 Content-Type: application/json
 
