@@ -6,14 +6,8 @@ const { QueryTypes } = require('sequelize');
 const Habitacion = require("../models/habitaciones.model");
 const ReservaHabitacion = require("../models/habitres.model");
 const Imagenes = require("../models/imagenes.model");
-<<<<<<< HEAD
 const { Reserva } = require("../models/reservas.model");
 const fs = require("fs");
-=======
-const { Reserva } = require('../models/reservas.model');
-const fs = require('fs');
-const { get } = require("../routes/api/habitaciones.routes");
->>>>>>> feature-reservas
 
 const getAll = async (req, res, next) => {
   try {
