@@ -3,11 +3,17 @@ const { Reserva } = require('../models/reservas.model')
 const Usuario = require('../models/usuarios.model')
 const { Op } = require('sequelize')
 const dayjs = require('dayjs');
+const sequelize = require('../config/db');
+const { QueryTypes } = require('sequelize');
 
 const getReservas = async (req, res, next) => {
     try {
-        const reservas = await Reserva.findAll()
+        const reservas = await Reserva.findAll({
+            include: ['usuario']
+        });
+
         res.json(reservas)
+
     } catch (error) {
         next(error)
     }
@@ -88,17 +94,6 @@ const filterByFecha = async (req, res, next) => {
     }
 }
 
-const destroyReserva = async (req, res, next) => {
-    const { reservaId } = req.params
-    try {
-        const reserva = await Reserva.findByPk(reservaId)
-        reserva.destroy()
-        res.json(reserva)
-    } catch (error) {
-        next(error)
-    }
-}
-
 
 const filterByFechaEntradaySalida = async (req, res, next) => {
     try {
@@ -142,6 +137,31 @@ const filterByDni = async (req, res, next) => {
     }
 };
 
+const cancelarReserva = async (req, res, next) => {
+    try {
+        const { reservaId } = req.params;
+        const reserva = await Reserva.findByPk(reservaId);
+        reserva.estado = 'Cancelada';
+        await reserva.save();
+        res.json(reserva);
+
+    } catch (error) {
+        next(error);
+    }
+}
+
+const getReservasUsuario = async (req, res, next) => {
+    try {
+
+        const reservas = await sequelize.query('SELECT * FROM reservas r WHERE r.id = ?', {
+            replacements: [req.user.id],
+            type: QueryTypes.SELECT,
+        });
+        res.json(reservas);
+    } catch (error) {
+        next(error);
+    }
+}
 
 
 module.exports = {
@@ -151,7 +171,8 @@ module.exports = {
     createReserva,
     filterByCliente,
     filterByFecha,
-    destroyReserva,
     filterByFechaEntradaySalida,
-    filterByDni
+    filterByDni,
+    cancelarReserva,
+    getReservasUsuario
 }

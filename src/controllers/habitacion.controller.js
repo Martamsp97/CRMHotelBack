@@ -1,4 +1,3 @@
-/* const { Op } = require('sequelize') */
 const sequelize = require('../config/db');
 const { QueryTypes } = require('sequelize');
 
@@ -163,6 +162,8 @@ const getHabByFecha = async (req, res, next) => {
     next(error);
   }
 }
+
+
 module.exports = {
   getAll,
   getById,
