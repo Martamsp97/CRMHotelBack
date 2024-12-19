@@ -2,33 +2,11 @@ const router = require("express").Router();
 const multer = require("multer");
 const upload = multer({ dest: "public/images" });
 
-<<<<<<< HEAD
-const {
-  create,
-  getById,
-  update,
-  destroy,
-  getHabByPiso,
-  getAll,
-  deleteImagen,
-  createImagen,
-  getHabByCategoria,
-<<<<<<< HEAD
-  getHabByVista,
-  getHabByFecha
-=======
-  getHabByVista
->>>>>>> feature-imagenes
-} = require("../../controllers/habitacion.controller");
-=======
-
 const { getAll, create, getById, update, destroy, getHabByPiso, getHabByCategoria, getHabByVista, createImagen, getHabByFecha, deleteImagen } = require("../../controllers/habitacion.controller");
-
->>>>>>> feature-forms
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 const {
-    checkAdmin,
-    checkToken,
+  checkAdmin,
+  checkToken,
 } = require("../../middlewares/usuarios.middlewares");
 
 router.get("/", getAll);
@@ -37,25 +15,14 @@ router.get('/categoria/:categoria', getHabByCategoria);
 router.get('/vista/:vista', getHabByVista);
 router.get('/:roomId', checkHabId, getById);
 router.get('/busqueda/:fecha_entrada/:fecha_salida', getHabByFecha);
-<<<<<<< HEAD
-
 router.get("/piso/:piso", getHabByPiso);
 router.get("/categoria/:categoria", getHabByCategoria);
 router.get("/vista/:vista", getHabByVista);
-
-=======
->>>>>>> feature-forms
 router.get("/:roomId", checkHabId, getById);
 
 router.post("/", checkToken, checkAdmin, create);
 router.post('/imagenes/:roomId', checkToken, checkAdmin, checkHabId, upload.single("imagen"), createImagen);
-
-<<<<<<< HEAD
 router.delete("/imagenes/:imagenId", checkToken, checkAdmin, deleteImagen);
-
-=======
-router.delete("/imagen/:imagenId", checkToken, checkAdmin, deleteImagen);
->>>>>>> feature-forms
 router.put("/:roomId", checkToken, checkAdmin, checkHabId, update);
 router.delete("/:roomId", checkToken, checkAdmin, checkHabId, destroy);
 
