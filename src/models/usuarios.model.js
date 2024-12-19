@@ -41,7 +41,8 @@ const Usuario = sequelize.define('Usuario', {
   },
   rol: {
     type: DataTypes.STRING(45),
-    allownull: false
+    allownull: true,
+
   },
   sexo: {
     type: DataTypes.ENUM('MASC', 'FEM'),

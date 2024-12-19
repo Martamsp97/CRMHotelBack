@@ -45,7 +45,7 @@ const checkUsuarioId = async (req, res, next) => {
 
 const checkBodyUsuario = async (req, res, next) => {
     const { nombre, apellidos, fecha_nacimiento, email, dni, password, rol, telefono, pais, ciudad, cod_postal } = req.body;
-    if (!nombre || !apellidos || !fecha_nacimiento || !email || !dni || !password || !rol || !telefono || !pais || !ciudad || !cod_postal) {
+    if (!nombre || !apellidos || !fecha_nacimiento || !email || !dni || !password || !telefono || !pais || !ciudad || !cod_postal) {
         return res.status(400).json({ message: 'Faltan campos obligatorios' });
     }
     //OBJETIVO: El email debe tener formato correcto (RegExpr)

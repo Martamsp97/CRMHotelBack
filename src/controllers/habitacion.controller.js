@@ -10,7 +10,9 @@ const fs = require("fs");
 
 const getAll = async (req, res, next) => {
   try {
-    const habitaciones = await Habitacion.findAll();
+    const habitaciones = await Habitacion.findAll(
+      { include: ["imagenes"] }
+    );
     res.json(habitaciones);
   } catch (error) {
     next(error);
