@@ -153,7 +153,7 @@ const cancelarReserva = async (req, res, next) => {
 const getReservasUsuario = async (req, res, next) => {
     try {
 
-        const reservas = await sequelize.query('SELECT * FROM reservas r WHERE r.id = ?', {
+        const reservas = await sequelize.query("SELECT * FROM reservas r WHERE r.usuarios_id = ? AND estado = 'Confirmada';", {
             replacements: [req.user.id],
             type: QueryTypes.SELECT,
         });

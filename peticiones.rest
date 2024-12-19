@@ -87,6 +87,13 @@ GET {{host}}/reservas
 
 ###
 
+###
+GET {{host}}/reservas/misreservas
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjoxLCJ1c3VhcmlvX3JvbCI6ImNsaWVudGUiLCJpYXQiOjE3MzQ1OTcxNTJ9.zrRQvdhb7m-BJUjMUhsy1DDHVTNZ74AJer61dQ7xFZM
+
+###
+
 POST {{host}}/reservas
 Content-Type: application/json
 
@@ -143,9 +150,10 @@ POST {{host}}/usuarios/login
 Content-Type: application/json
 
 {
-    "email":"luisa@gmail.com",
+    "email":"maruijita@gmail.com",
     "password":"12345"
 }
+
 
 ###
 POST {{host}}/habitaciones/imagenes/1
