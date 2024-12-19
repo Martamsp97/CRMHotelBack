@@ -2,7 +2,19 @@ const router = require("express").Router();
 const multer = require("multer");
 const upload = multer({ dest: "public/images" });
 
-const { getAll, create, getById, update, destroy, getHabByPiso, getHabByCategoria, getHabByVista, createImagen, getHabByFecha, deleteImagen } = require("../../controllers/habitacion.controller");
+const {
+  create,
+  getById,
+  update,
+  destroy,
+  getHabByPiso,
+  getAll,
+  deleteImagen,
+  createImagen,
+  getHabByCategoria,
+  getHabByVista,
+  getHabByFecha
+} = require("../../controllers/habitacion.controller");
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 const {
   checkAdmin,
