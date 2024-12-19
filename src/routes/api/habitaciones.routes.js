@@ -12,12 +12,8 @@ const {
   deleteImagen,
   createImagen,
   getHabByCategoria,
-<<<<<<< HEAD
   getHabByVista,
   getHabByFecha
-=======
-  getHabByVista
->>>>>>> feature-imagenes
 } = require("../../controllers/habitacion.controller");
 const { checkHabId } = require("../../middlewares/habitaciones.middleware");
 const {

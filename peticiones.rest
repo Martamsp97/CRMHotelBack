@@ -125,7 +125,8 @@ Content-Type: application/json
     "cod_postal":28063
 
 }
-
+###
+GET {{host}}/usuarios/editusuario/1
 ###
 GET {{host}}/usuarios/96576437G
 ###
@@ -145,5 +146,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo3LCJ1c3Vh
 DELETE {{host}}/habitaciones/imagenes/5
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo3LCJ1c3VhcmlvX3JvbCI6ImFkbWluIiwiaWF0IjoxNzM0MzkyNjg2fQ.5CPjuToxmh8gLtHEWjjTPLsin3N07Du3JzZi7okM98g
-
+###
+GET {{host}}/usuarios/logeado
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo3LCJ1c3VhcmlvX3JvbCI6ImFkbWluIiwiaWF0IjoxNzM0MzkyNjg2fQ.5CPjuToxmh8gLtHEWjjTPLsin3N07Du3JzZi7okM98g
 
