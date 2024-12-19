@@ -36,6 +36,12 @@ Content-Type: application/json
 "cocina" : "Incluye"
 }
 
+
+###
+GET {{host}}/reservas/dashboard/5
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo0LCJ1c3VhcmlvX3JvbCI6ImFkbWluIiwiaWF0IjoxNzM0MTEwNzI5fQ.xZIe0HhuVhT6-KAy3CwqXz3KGGnC1IUe8OZ18jdtVZo
+
 ###
 GET {{apiHabitaciones}}/busqueda/2025-12-24/2025-12-30
 
@@ -74,6 +80,17 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo0LCJ1c3Vhc
 ###
 
 GET {{host}}/reservas/fecha/2024-12-18/2024-12-25
+
+###
+
+GET {{host}}/reservas
+
+###
+
+###
+GET {{host}}/reservas/misreservas
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjoxLCJ1c3VhcmlvX3JvbCI6ImNsaWVudGUiLCJpYXQiOjE3MzQ1OTcxNTJ9.zrRQvdhb7m-BJUjMUhsy1DDHVTNZ74AJer61dQ7xFZM
 
 ###
 
@@ -133,9 +150,10 @@ POST {{host}}/usuarios/login
 Content-Type: application/json
 
 {
-    "email":"luisa@gmail.com",
+    "email":"maruijita@gmail.com",
     "password":"12345"
 }
+
 
 ###
 POST {{host}}/habitaciones/imagenes/1
