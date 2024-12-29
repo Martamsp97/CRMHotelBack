@@ -14,7 +14,7 @@ router.get('/fecha/:fecha_entrada', checkFechasReserva, filterByFecha)
 router.get('/:reservaId', checkToken, getReservaById)
 router.get('/fecha/:fecha_entrada/:fecha_salida', filterByFechaEntradaySalida)
 router.get('/dni/:usuarioDni', filterByDni)
-router.post('/', createReserva)
+
 router.put('/edit/:reservaId', updateReserva)
 router.post('/', checkToken, createReserva)
 router.put('/:reservaId', checkToken, checkAdmin, updateReserva)
